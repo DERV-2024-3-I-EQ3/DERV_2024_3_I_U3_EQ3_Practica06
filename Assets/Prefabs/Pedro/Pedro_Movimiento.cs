@@ -8,8 +8,6 @@ public class Pedro_Movimiento : MonoBehaviour
     private Animator animator;
 
     [SerializeField] private float velocidad = 3f;
-    [SerializeField] private float sensibilidadMouse = 100f;
-    [SerializeField] private float velocidadRotacion = 100f;
     [SerializeField] private int fuerzaSalto = 2;  // Velocidad de rotación
 
     public bool IsJumping = false;
@@ -24,22 +22,6 @@ public class Pedro_Movimiento : MonoBehaviour
     {
         if (IsAlive)
         {
-
-            if (Input.GetMouseButton(1))
-            {
-                float mouseX = Input.GetAxis("Mouse X") * sensibilidadMouse * Time.deltaTime;
-                transform.Rotate(Vector3.up * mouseX);
-            }
-
-            if (Input.GetKey(KeyCode.Q))
-            {
-                transform.Rotate(0, -velocidadRotacion * Time.deltaTime, 0);
-            }
-            else if (Input.GetKey(KeyCode.E))
-            {
-                transform.Rotate(0, velocidadRotacion * Time.deltaTime, 0);
-            }
-
 
             if (Input.GetKeyDown(KeyCode.Space) && !IsJumping)
             {
@@ -90,5 +72,4 @@ public class Pedro_Movimiento : MonoBehaviour
         animator.SetBool("IsDeath", false);
         IsAlive = true;
     }
-
 }
