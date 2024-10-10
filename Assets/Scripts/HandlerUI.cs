@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class HandlerUI : MonoBehaviour
 {
-    [SerializeField] public TextMeshProUGUI zonaAparicion;
-    [SerializeField] public TextMeshProUGUI vida;
-    [SerializeField] public TextMeshProUGUI zonaMapa;
-    [SerializeField] public TextMeshProUGUI muerto;
+    [SerializeField] private TextMeshProUGUI vida;
+    [SerializeField] private TextMeshProUGUI textoFinal;
+    [SerializeField] private TextMeshProUGUI pasteles;
 
 
     public void cambiarVida(int vida)
@@ -16,18 +15,13 @@ public class HandlerUI : MonoBehaviour
         this.vida.text = vida.ToString();
     }
 
-    public void cambiarZona(string zona)
+    public void cambiarTextoFinal(string texto)
     {
-        this.zonaMapa.text = zona;
+        textoFinal.text = texto;
     }
 
-    public void cambiarZonaAparicion(string zona)
+    public void cambiarPasteles(int pasteles)
     {
-        zonaAparicion.text = zona;
-    }
-
-    public void cambiarHazMuerto(string texto)
-    {
-        muerto.text = texto;
+        this.pasteles.text = pasteles.ToString();
     }
 }

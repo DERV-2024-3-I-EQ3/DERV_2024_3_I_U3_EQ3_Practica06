@@ -5,74 +5,49 @@ using UnityEngine;
 public class HandlerGame : MonoBehaviour
 {
     private int vida = 1000;
-    private string zonaMapa = "Exterior";
-    private string zonaAparicionTexto = "Origen";
-    public Transform zonaAparicionTransform;
-    [SerializeField] public GameObject personaje;
-
+    public int pasteles = 15;
     [SerializeField] public HandlerUI handlerUI;
     [SerializeField] public Pedro_Movimiento movimientoPersonaje;
+
+
     void Start()
     {
-        zonaAparicionTransform = transform;
         handlerUI.cambiarVida(vida);
-        handlerUI.cambiarZona(zonaMapa);
-        handlerUI.cambiarZonaAparicion(zonaAparicionTexto);
-
+        handlerUI.cambiarPasteles(pasteles);
     }
-
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (this.vida <= 0)
         {
-            vida = 1000;
-            personaje.GetComponent<Transform>().position = zonaAparicionTransform.position;
-            handlerUI.cambiarVida(vida);
-            movimientoPersonaje.revivirPedro();
-            handlerUI.cambiarHazMuerto("");
+            handlerUI.cambiarVida(0);
+            movimientoPersonaje.matarPedro();
+            handlerUI.cambiarTextoFinal("HAZ MUERTO");
         }
+
+        if (this.pasteles <= 0)
+        {
+            handlerUI.cambiarTextoFinal("GANASTE");
+        }
+    }
+
+    public bool IsAlive()
+    {
+        return movimientoPersonaje.IsAlive;
+    }
+
+    public void restarPastel()
+    {
+        this.pasteles--;
+        handlerUI.cambiarPasteles(this.pasteles);
     }
 
     public void restarVida(int vida)
     {
-        if (this.vida > 0)
-        {
-            this.vida -= vida;
-            handlerUI.cambiarVida(this.vida);
-        }
-        else if (this.vida <= 0)
-        {
-            handlerUI.cambiarVida(0);
-            movimientoPersonaje.matarPedro();
-            handlerUI.cambiarHazMuerto("HAZ MUERTO");
-        }
+        this.vida -= vida;
+        handlerUI.cambiarVida(this.vida);
     }
 
-    public void regenerarVida(int vida)
-    {
-        if (this.vida < 1000)
-        {
-            this.vida += vida;
-            handlerUI.cambiarVida(this.vida);
-        }
-    }
 
-    public void cambiarZonaMapa(string zona)
-    {
-        this.zonaMapa = zona;
-        handlerUI.cambiarZona(zona);
-    }
-
-    public void cambiarZonaAparicionTexto(string zona)
-    {
-        this.zonaAparicionTexto = zona;
-        handlerUI.cambiarZonaAparicion(zona);
-    }
-
-    public void cambiarZonaAparicionTransform(Transform zona)
-    {
-        this.zonaAparicionTransform = zona;
-    }
 
 
 }

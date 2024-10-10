@@ -379,6 +379,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c36ed93c0525bd049ac4e561d6117e78, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6439354308713089926}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c36ed93c0525bd049ac4e561d6117e78, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7884772000205689272}
   m_SourcePrefab: {fileID: 100100000, guid: c36ed93c0525bd049ac4e561d6117e78, type: 3}
 --- !u!1 &5995539821922321792 stripped
 GameObject:
@@ -400,12 +403,34 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0.1, z: 0}
+--- !u!114 &7884772000205689272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5995539821922321792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d875c185e9bc74bae60ca955225d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemigos: []
+  puntosRespawn:
+  - {fileID: 1288166245163865833}
+  - {fileID: 1744031033917352618}
+  - {fileID: 6253835316980013558}
+  - {fileID: 2412640710741161366}
+  - {fileID: 322125864665834747}
+  - {fileID: 3268594075507843395}
+  - {fileID: 3769022110449867382}
+  - {fileID: 1336351327220363404}
 --- !u!4 &6377025738600865594 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c36ed93c0525bd049ac4e561d6117e78, type: 3}
